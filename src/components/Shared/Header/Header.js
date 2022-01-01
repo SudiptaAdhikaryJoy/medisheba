@@ -7,20 +7,20 @@ const Header = () => {
 
   return (
     <div>
-      <nav style={{}} className="bg-blue-100 text-gray-800">
+      <nav style={{}} className="bg-cyan-300 text-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex grow items-center justify-start h-16">
-            <div className="flex-shrink-0">
+          <div className="flex items-center justify-start h-16">
+            <div className="flex-shrink-0 grow">
               <Link to="/">
                 {" "}
                 <img
-                  src="https://o.remove.bg/downloads/febbdbcb-42e7-421a-95ec-65702c415659/green-eco-logo-icon_126523-706-removebg-preview.png"
+                  src="https://image.freepik.com/free-vector/green-eco-logo-icon_126523-706.jpg"
                   alt=""
                   className="h-16 w-24"
                 />
               </Link>
             </div>{" "}
-            <div className="flex flex-shrink-0 grow items-center justify-center">
+            <div className="flex flex-shrink-0 grow items-start justify-start">
               <div className="hidden md:block">
                 <div className="ml-10 flex items-center justify-center space-x-4">
                   <div></div>
