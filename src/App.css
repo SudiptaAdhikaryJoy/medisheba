@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.regular-btn {
+  background-color: inherit;
+  border: 2px solid #61dafb;
+  color: #61dafb;
+  padding: 7px 17px;
+  border-radius: 5px;
+  transition: 300ms ease;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.regular-btn:hover {
+  background-color: #61dafb;
+  color: white;
+}

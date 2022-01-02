@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Pages/Homepage/Home/Home";
+import OrderItem from "./components/Pages/OrderItem/OrderItem";
 import Footer from "./components/Shared/Footer/Footer";
 import Header from "./components/Shared/Header/Header";
 
@@ -14,6 +15,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/order/:id">
+            <OrderItem></OrderItem>
           </Route>
         </Switch>
         <Footer></Footer>
