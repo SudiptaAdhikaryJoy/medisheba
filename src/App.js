@@ -17,7 +17,7 @@ function App() {
             <Home></Home>
           </Route>
           <Route path="/order/:id">
-            <OrderItem></OrderItem>
+            <OrderItem url="https://medi-sheba-backend.herokuapp.com/getOneMedicine"></OrderItem>
           </Route>
         </Switch>
         <Footer></Footer>
