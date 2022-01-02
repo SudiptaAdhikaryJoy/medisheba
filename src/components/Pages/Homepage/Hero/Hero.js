@@ -43,7 +43,7 @@ const Hero = () => {
           </div>
           <div class="hidden sm:block sm:w-1/3 lg:w-3/5 relative">
             <img
-              src="https://o.remove.bg/downloads/38b9b41a-c352-4622-981f-1f8410db0075/handsome-young-doctor-isolated-white_87414-4917-removebg-preview.png"
+              src="https://i.ibb.co/ctcndr2/handsome-young-doctor-pointing-white-wall-87414-4919-removebg-preview.png"
               class="max-w-xs md:max-w-sm m-auto"
               alt="hero pic"
             />

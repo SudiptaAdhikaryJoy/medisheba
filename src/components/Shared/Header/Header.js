@@ -14,9 +14,9 @@ const Header = () => {
               <Link to="/">
                 {" "}
                 <img
-                  src="https://image.freepik.com/free-vector/green-eco-logo-icon_126523-706.jpg"
+                  src="https://i.ibb.co/JRs7R6k/green-eco-logo-icon-126523-706-removebg-preview.png"
                   alt=""
-                  className="h-16 w-24"
+                  className="h-24 w-32"
                 />
               </Link>
             </div>{" "}
