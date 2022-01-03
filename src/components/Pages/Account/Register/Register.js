@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
+import Alert from '../../../Shared/Alert/Alert';
+
+import Preloader from '../../../Shared/Preloader/Preloader';
+
 
 const Register = () => {
-    const [loginData, setLoginData] = useState({})
+    const [loginData, setLoginData] = useState({});
+
+    const { user, registerUser, isLoading } = useAuth();
 
     const handleOnChange = e =>{
         const field = e.target.name;
@@ -19,6 +26,7 @@ const Register = () => {
             alert('did not match');
             return;
         }
+        registerUser(loginData.email, loginData.password);
     }
     return (
         <>
@@ -30,7 +38,7 @@ const Register = () => {
                 </div>
                 {/* form part */}
                 <div className="mt-10">
-                    <form className="flex flex-col mx-auto w-fit" action="" onSubmit={handleLoginSubmit}>
+                    {!isLoading && <form className="flex flex-col mx-auto w-fit" action="" onSubmit={handleLoginSubmit}>
                         <div className="mb-6 pt-3 rounded bg-gray-200">
                             <label className="block text-gray-700 text-sm font-bold mb-2 ml-3 w-fit" htmlFor="name">Name</label>
                             <input 
@@ -75,7 +83,9 @@ const Register = () => {
                         </div> */}
                         <button className="mt-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-3 rounded shadow-lg hover:shadow-xl transition ease-in-out duration-200 hover:-translate-y-1 hover:scale-110" type='submit'>Register</button>
                     <NavLink to="/login"><button className="mt-3 text-sky-700">Already an User? Please Login</button></NavLink>
-                    </form>
+                    </form>}
+                    {isLoading && <Preloader></Preloader>}
+                    {user?.email && <Alert/>}
                 </div>
                 </section>
             </div>
