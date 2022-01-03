@@ -36,7 +36,11 @@ const Medicines = () => {
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {medicines.map((data) => (
-                <Card key={data._id} data={data}></Card>
+                <Card
+                  key={data._id}
+                  data={data}
+                  url={`/orderMedicine/${data._id}`}
+                ></Card>
               ))}
             </div>
             {medicines.length <= 6 && (

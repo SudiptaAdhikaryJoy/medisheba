@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import useAuth from '../../../hooks/useAuth';
+import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const {user, logOut} = useAuth();
+  const { user, logOut } = useAuth();
   return (
     <div>
       <nav style={{}} className="bg-cyan-300 text-gray-800 text-lg">
@@ -173,7 +173,6 @@ const Header = () => {
                 >
                   Resume
                 </Link>
-
                 <Link
                   to="/"
                   className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg block px-3 py-2 rounded-md text-base font-medium"
@@ -186,7 +185,6 @@ const Header = () => {
                 >
                   Contact
                 </Link>
-
                 <Link
                   to="/"
                   // onClick={handleLogOut}
@@ -194,7 +192,6 @@ const Header = () => {
                 >
                   Logout
                 </Link>
-
                 <Link
                   to="/login"
                   className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
