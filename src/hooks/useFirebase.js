@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import initializeFirebase from '../Firebase/firebase.init';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 
 
 // initialize firebase app
@@ -11,6 +11,7 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
+    // register user
     const registerUser = (email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -22,7 +23,20 @@ const useFirebase = () => {
             const errorMessage = error.message;
             
         });
+    }
 
+    // login user
+    const loginUser = (email, password)=>{
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
     }
 
     // observe user state management
@@ -51,6 +65,7 @@ const useFirebase = () => {
     return {
         user,
         registerUser,
+        loginUser,
         logOut,
     }
 }
