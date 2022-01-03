@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -37,9 +37,14 @@ const Services = () => {
                       {service?.rating?.rate}{" "}
                       <span>{service?.rating?.count}</span>
                     </p>
-                    <button class="flex mx-auto mt-6 text-white bg-cyan-500 border-0 py-2 px-5 focus:outline-none hover:bg-cyan-600 rounded">
-                      Details
-                    </button>
+
+                    <NavLink to={`/requestService/${service?._id}`}
+                      style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }}
+                    ><button class="flex mx-auto mt-6 text-white bg-cyan-500 border-0 py-2 px-5 focus:outline-none hover:bg-cyan-600 rounded">
+                        Details
+                      </button></NavLink>
+
+
                   </div>
                 </div>
               </div>
