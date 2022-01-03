@@ -21,8 +21,8 @@ const OrderItem = ({ url }) => {
   }, []);
 
   React.useEffect(() => {
-    document.title = "Order | MediSheba";
-  }, []);
+    document.title = `${data.name ? data.name : "Order"} | MediSheba`;
+  }, [data]);
 
   console.log(data);
 
@@ -45,7 +45,7 @@ const OrderItem = ({ url }) => {
               <p className="text-2xl mb-2">
                 &#36; <span className="text-3xl mb-2">{data?.price}</span>
               </p>
-              {location.pathname.split("/")[1] === "order" && (
+              {location.pathname.split("/")[1] === "orderMedicine" && (
                 <p className="text-2xl mb-2">Published At: {data?.published}</p>
               )}
               <div className="flex align-center mb-2">
