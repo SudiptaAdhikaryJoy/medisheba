@@ -85,7 +85,7 @@ const Register = () => {
                     <NavLink to="/login"><button className="mt-3 text-sky-700">Already an User? Please Login</button></NavLink>
                     </form>}
                     {isLoading && <Preloader></Preloader>}
-                    {user?.email && <Alert/>}
+                    {/* {user?.email && <Alert/>} */}
                 </div>
                 </section>
             </div>

@@ -3,6 +3,9 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
 import Preloader from '../../../Shared/Preloader/Preloader';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const style={
         backgroundColor: '#203A43',
     }
@@ -10,6 +13,12 @@ const style={
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const {user, loginUser, isLoading, authError} = useAuth();
+
+    const diffToast = () =>{
+    toast.dark('login successfully',{
+        position:'center'
+    });
+  }
 
     const handleOnChange = e =>{
         const field = e.target.name;
@@ -34,7 +43,7 @@ const Login = () => {
                 </div>
                 {/* form part */}
                 <div className="mt-10">
-                    <form className="flex flex-col mx-auto w-fit" action="" onSubmit={handleLoginSubmit}>
+                    {!isLoading && <form className="flex flex-col mx-auto w-fit" action="" onSubmit={handleLoginSubmit}>
                         <div className="mb-6 pt-3 rounded bg-gray-200">
                             <label className="block text-gray-700 text-sm font-bold mb-2 ml-3 w-fit" htmlFor="email">Email</label>
                             <input 
@@ -58,10 +67,12 @@ const Login = () => {
                         <div className="flex justify-end">
                             <a href="" className="text-sm text-purple-600 hover:text-purple-700 hover:underline mb-6">Forgot your passcode?</a>
                         </div>
-                        <button className="mt-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-3 rounded shadow-lg hover:shadow-xl transition ease-in-out duration-200 hover:-translate-y-1 hover:scale-110" type='submit'>Sign In</button>
+                        <button onClick={diffToast} className="mt-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-3 rounded shadow-lg hover:shadow-xl transition ease-in-out duration-200 hover:-translate-y-1 hover:scale-110" type='submit'>Sign In</button>
                     <NavLink to="/register"><button className="mt-3 text-sky-700">New User? please Register</button></NavLink>
+
+                    </form>}
                     {isLoading && <Preloader></Preloader>}
-                    </form>
+                    {user?.email && <ToastContainer /> }
                 </div>
                 </section>
             </div>

@@ -3,10 +3,14 @@ import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import useAuth from '../../../hooks/useAuth';
 
+
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const {user, logOut} = useAuth();
+
+  
   return (
     <div>
       <nav style={{}} className="bg-cyan-300 text-gray-800 text-lg">
@@ -56,19 +60,20 @@ const Header = () => {
                     >
                       Contact
                     </Link>
-                    <Link
+                    {user?.email ? <Link
                       to="/"
-                      // onClick={handleLogOut}
+                      onClick={logOut}
                       className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Logout
                     </Link>
+                    :
                     <Link
                       to="/login"
                       className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Login
-                    </Link>
+                    </Link>}
                   </div>
                   <div className="">
                     <Link
@@ -187,20 +192,20 @@ const Header = () => {
                   Contact
                 </Link>
 
-                <Link
-                  to="/"
-                  // onClick={handleLogOut}
+                {user?.email ? <Link
+                  to=""
+                  onClick={logOut}
                   className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Logout
                 </Link>
-
+                :
                 <Link
                   to="/login"
                   className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Login
-                </Link>
+                </Link>}
               </div>
             </div>
           )}
