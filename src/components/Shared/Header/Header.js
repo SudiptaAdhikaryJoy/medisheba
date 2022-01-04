@@ -36,12 +36,7 @@ const Header = () => {
                     >
                       Solutions
                     </Link>
-                    <Link
-                      to="/blog"
-                      className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Blog
-                    </Link>
+                     
                     <Link
                       to=""
                       className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
