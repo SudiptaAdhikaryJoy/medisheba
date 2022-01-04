@@ -7,6 +7,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { user, logOut } = useAuth();
+  console.log(user);
   return (
     <div>
       <nav style={{}} className="bg-cyan-300 text-gray-800 text-lg">
