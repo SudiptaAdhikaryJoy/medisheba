@@ -53,3 +53,9 @@
   background-color: #61dafb;
   color: white;
 }
+
+.regular-btn:disabled {
+  background-color: #61dafb;
+  color: white;
+  cursor: no-drop;
+}
