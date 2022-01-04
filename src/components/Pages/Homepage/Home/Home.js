@@ -1,4 +1,5 @@
 import React from "react";
+import Messanger from "../../../Shared/Messenger/Messanger";
 import ContactForm from "../ContactForm/ContactForm";
 import Hero from "../Hero/Hero";
 import Medicines from "../Medicines/Medicines";
@@ -14,6 +15,7 @@ const Home = () => {
       <Hero></Hero>
       <Medicines></Medicines>
       <Services></Services>
+      <Messanger/>
       {/* <ContactForm/> */}
     </div>
   );
