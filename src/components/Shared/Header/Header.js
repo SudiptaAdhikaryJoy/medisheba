@@ -39,7 +39,12 @@ const Header = () => {
                     >
                       Solutions
                     </Link>
-                     
+                    <Link
+                      to="/dashboard"
+                      className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Dashboard
+                    </Link>
                     <Link
                       to=""
                       className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
@@ -164,10 +169,10 @@ const Header = () => {
                   Solututions
                 </Link>
                 <Link
-                  to="/"
+                  to="/dashboard"
                   className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Resume
+                  Dashboard
                 </Link>
                 <Link
                   to="/"
