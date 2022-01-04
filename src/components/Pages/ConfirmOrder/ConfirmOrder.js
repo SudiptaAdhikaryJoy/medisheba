@@ -72,6 +72,7 @@ const ConfirmOrder = () => {
       },
       date: date,
       orderId: data._id,
+      gender: data.gender.value,
     };
 
     axios
@@ -81,6 +82,7 @@ const ConfirmOrder = () => {
           reset();
           setOrderText("Order Confirmed!");
           setSuccess("Order added successfully!");
+          setBtnDisable(true);
         } else {
           setOrderText("Error Occured!");
           setSuccess("There has been an error!");
