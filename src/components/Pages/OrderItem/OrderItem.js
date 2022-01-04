@@ -2,12 +2,14 @@ import axios from "axios";
 import React from "react";
 import Rating from "react-rating";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Preloader from "../../Shared/Preloader/Preloader";
 
 const OrderItem = ({ url }) => {
   const [data, setData] = React.useState({});
   const [loading, setLoading] = React.useState(false);
+  const history = useHistory();
 
   const { id } = useParams();
   const location = useLocation();
@@ -61,7 +63,9 @@ const OrderItem = ({ url }) => {
                 <p style={{ fontSize: "18px" }}>({data?.rating?.count})</p>
               </div>
               <p className="text-slate-700 mb-5">{data?.description}</p>
-              <button className="regular-btn">Order Now</button>
+              <button className="regular-btn" onClick={() => history.push(`/confirmOrder/${data._id}`)}>
+                Order Now
+              </button>
             </div>
           </div>
         </div>

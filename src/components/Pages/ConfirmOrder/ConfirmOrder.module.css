@@ -1,0 +1,22 @@
+.input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 22px 7px;
+  height: 15px;
+  width: 100%;
+  transition: all 150ms ease-in-out;
+  border-radius: 4px;
+}
+
+.input:focus {
+  transition: 150ms ease-in-out;
+  outline-color: #0052cc;
+}
+
+.label {
+  color: black;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-size: 20px;
+}
