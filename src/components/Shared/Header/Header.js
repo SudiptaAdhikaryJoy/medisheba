@@ -7,6 +7,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { user, logOut } = useAuth();
+  console.log(user);
   return (
     <div>
       <nav style={{}} className="bg-cyan-300 text-gray-800 text-lg">
@@ -39,10 +40,10 @@ const Header = () => {
                       Solutions
                     </Link>
                     <Link
-                      to="/blog"
+                      to="/dashboard"
                       className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Blog
+                      Dashboard
                     </Link>
                     <Link
                       to=""
@@ -168,10 +169,10 @@ const Header = () => {
                   Solututions
                 </Link>
                 <Link
-                  to="/"
+                  to="/dashboard"
                   className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Resume
+                  Dashboard
                 </Link>
                 <Link
                   to="/"
