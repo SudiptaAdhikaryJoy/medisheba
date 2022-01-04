@@ -6,7 +6,7 @@ MediSheba is an online based medical shop where users can order medicine and ser
 
 ## Live Site
 
-[Link to live site]()
+[Link to live site](https://eloquent-hodgkin-7b0659.netlify.app/)
 
 ## Backend Code
 
