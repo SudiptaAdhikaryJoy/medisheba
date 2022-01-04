@@ -1,84 +1,51 @@
-import React from "react";
+import React from 'react';
 import emailjs from 'emailjs-com';
-import { useForm } from "react-hook-form";
-import './ContactForm.css';
 
-export default function App() {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
-   
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName", { required: true, maxLength: 20 })} placeholder="hello1" />
-      <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} />
-      <input type="number" {...register("age", { min: 18, max: 99 })} />
-      <input type="submit" />
-    </form>
-  );
-}
+const ContactForm = () => {
+    function sendEmail(e) {
+        e.preventDefault();
 
+        emailjs.sendForm('service_cloayx8','template_hwhkh9s',e.target,'user_XUx2hs4Z7T8AVDRMbbqDr')
+        .then(res=>{console.log(res)}
+        
+        ).catch(err=>console.log(err));
+        e.target.reset();
+    }
+    
+    return (
+        <div className="container border "
+            style={{marginTop:'50px',
+            width: '50%',
+            backgroundImage: `url('https://wallpaperaccess.com/full/2579674.jpg')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            border: '20px',
+            borderRadius: '10px',
+            borderShadow: 'large'
+        }}
+        
+        >
+            
+            <h1 className='text-center' style={{marginTop: '25px', color:'#E4E5E6', fontWeight: 'bold', fontSize: "30px"}}>Contact Us</h1>
+            
+            <form className='row' style={{ margin:'25px 85px 75px 100px', color:'#fff'}} onSubmit={sendEmail}>
+                {/* <label>Name</label> */}
+                <input style={{marginTop:'20px'}} type="text" name="name" className="form-control" placeholder="enter your name" />
 
+                {/* <label>Email</label> */}
+                <input style={{marginTop:'20px'}} type="email" name="user_email" className="form-control" placeholder="enter your email address" />
 
+                <label></label>
+                <textArea style={{marginTop:'20px'}} name='message' rows='4' className="form-control" placeholder="enter your messages" />
+                <button
+                 type="submit" 
+                 value="send" 
+                 className="form control btn btn-success"
+                 style={{marginTop:'30px', fontWeight: 600}}
+                 >Send</button>
+            </form>
+        </div>
+    );
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useRef, useState } from 'react';
-// import emailjs from 'emailjs-com';
-
-
-
-// const ContactForm = (props) => {
-//     const form = useRef();
-//     const [result, showResult] = useState(false);
-
-//     const Result = () ={
-//     return ( <p>Messsage Sent Succcessfully </p> )
-// }
-
-//   const sendEmail = (e) => {
-//     e.preventDefault();
-
-//     emailjs.sendForm('service_cloayx8', 'template_hwhkh9s', form.current, 'user_XUx2hs4Z7T8AVDRMbbqDr')
-//       .then((result) => {
-//           console.log(result.text);
-//       }, (error) => {
-//           console.log(error.text);
-//       });
-//       e.target.reset();
-//       showResult(true);
-//   };
-//     return (
-//         <>
-//           <form ref={form} onSubmit={sendEmail}>
-//       <label>Name</label>
-//       <input type="text" name="user_name" />
-//       <label>Email</label>
-//       <input type="email" name="user_email" />
-//       <label>Message</label>
-//       <textarea name="message" />
-//       <input type="submit" value="Send" />
-//     </form>  
-//         </>
-//     );
-// };
-
-// export default ContactForm;
+export default ContactForm;

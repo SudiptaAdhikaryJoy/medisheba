@@ -38,8 +38,8 @@ const Login = () => {
             <div className="min-h-screen pt-12 md:pt-20 pb-6 px-2" style={{...style}}>
                 <section className="bg-white dark:bg-gray-100 mx-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
                     <div className="">
-                    <h2 className="font-bold text-2xl animate__animated animate__bounce animate__faster">Welcome To MediSheba</h2>
-                    <p className="text-gray-500 pt-2">Sign in to your account.</p>
+                    <h2 className="text-center hover:text-center font-bold text-2xl animate__animated animate__bounce animate__faster">Welcome To MediSheba</h2>
+                    <p className="text-center hover:text-center text-gray-500 pt-2">Sign in to your account.</p>
                 </div>
                 {/* form part */}
                 <div className="mt-10">
