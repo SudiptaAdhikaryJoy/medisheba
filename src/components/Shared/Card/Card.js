@@ -6,7 +6,7 @@ const Card = ({ data, url }) => {
   const history = useHistory();
 
   return (
-    <div className="card-wrapper bg-white shadow-md">
+    <div className="card-wrapper bg-white shadow-md mx-auto">
       <img src={data.image} alt={data.name} className="card-img" />
       <div className="card-content">
         <p className="text-3xl mt-3">{data.name}</p>
