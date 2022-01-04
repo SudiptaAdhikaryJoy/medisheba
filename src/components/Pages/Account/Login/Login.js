@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
+import Preloader from '../../../Shared/Preloader/Preloader';
 
 const style = {
     backgroundColor: '#203A43',
 }
 
 const Login = () => {
-    const [loginData, setLoginData] = useState({})
+    const [loginData, setLoginData] = useState({});
+    const { loginUser, isLoading } = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -18,7 +21,7 @@ const Login = () => {
     }
 
     const handleLoginSubmit = e => {
-        alert('hello');
+        loginUser(loginData.email, loginData.password);
         e.preventDefault();
     }
     return (
@@ -53,10 +56,11 @@ const Login = () => {
                                 />
                             </div>
                             <div className="flex justify-end">
-                                <a href="" className="text-sm text-purple-600 hover:text-purple-700 hover:underline mb-6">Forgot your password?</a>
+                                <a href="" className="text-sm text-purple-600 hover:text-purple-700 hover:underline mb-6">Forgot your passcode?</a>
                             </div>
                             <button className="mt-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-1 px-3 rounded shadow-lg hover:shadow-xl transition ease-in-out duration-200 hover:-translate-y-1 hover:scale-110" type='submit'>Sign In</button>
                             <NavLink to="/register"><button className="mt-3 text-sky-700">New User? please Register</button></NavLink>
+                            {isLoading && <Preloader></Preloader>}
                         </form>
                     </div>
                 </section>

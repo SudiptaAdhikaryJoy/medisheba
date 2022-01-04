@@ -24,8 +24,6 @@ const OrderItem = ({ url }) => {
     document.title = `${data.name ? data.name : "Order"} | MediSheba`;
   }, [data]);
 
-  console.log(data);
-
   return (
     <div>
       {loading ? (
