@@ -80,14 +80,14 @@ const Header = () => {
                       {" "}
                       <span>
                         {" "}
-                        <i class="fas fa-cart-plus"></i>Cart
+                        <i class="fas fa-cart-plus"></i>&nbsp;Cart
                       </span>
                     </Link>
                     <Link
                       to="/"
                       className="text-gray-800 text-lg hover:bg-blue-300 hover:text-gray-800 text-lg px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      <i class="fas fa-cart-plus"></i> Orders
+                      <i class="fas fa-shopping-bag"></i>&nbsp; Orders
                     </Link>
                   </div>
                 </div>

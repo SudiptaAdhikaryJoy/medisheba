@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../Hero/Hero";
 import Medicines from "../Medicines/Medicines";
 import Services from "../Services/Services";
+import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
   React.useEffect(() => {
@@ -13,6 +14,7 @@ const Home = () => {
       <Hero></Hero>
       <Medicines></Medicines>
       <Services></Services>
+      <Testimonial></Testimonial>
     </div>
   );
 };
