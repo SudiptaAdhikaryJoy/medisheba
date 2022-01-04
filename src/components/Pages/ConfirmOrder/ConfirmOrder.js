@@ -98,84 +98,97 @@ const ConfirmOrder = () => {
   return (
     <>
       {loading ? (
-        <Preloader></Preloader>
+        <>
+          <div className="mt-16"></div>
+          <Preloader></Preloader>
+          <div className="mb-24"></div>
+        </>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto my-10 gap-x-11">
-          <div style={{ textAlign: "start" }}>
-            <img src={order.image} alt={order.name} style={{ width: "100%" }} />
-            <div className="mt-3">
-              <p className="text-5xl">{order.name}</p>
-              <div className="flex align-center mb-2">
-                <Rating
-                  initialRating={order?.rating?.rate}
-                  readonly
-                  fullSymbol="fas fa-star"
-                  emptySymbol="far fa-star"
-                  style={{
-                    color: "#FFDF00",
-                    marginRight: "5px",
-                    fontSize: "18px",
-                  }}
-                />
-                <p style={{ fontSize: "18px" }}>({order?.rating?.count})</p>
+        <>
+          <p className="text-4xl text-center mt-5">Please confirm Your Order</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto my-10 gap-x-11">
+            <div style={{ textAlign: "start" }}>
+              <img
+                src={order.image}
+                alt={order.name}
+                style={{ width: "100%" }}
+              />
+              <div className="mt-3">
+                <p className="text-5xl">{order.name}</p>
+                <div className="flex align-center mb-2">
+                  <Rating
+                    initialRating={order?.rating?.rate}
+                    readonly
+                    fullSymbol="fas fa-star"
+                    emptySymbol="far fa-star"
+                    style={{
+                      color: "#FFDF00",
+                      marginRight: "5px",
+                      fontSize: "18px",
+                    }}
+                  />
+                  <p style={{ fontSize: "18px" }}>({order?.rating?.count})</p>
+                </div>
+                <p className="text-gray-600">{order.description}</p>
               </div>
-              <p className="text-gray-600">{order.description}</p>
+            </div>
+            <div className="self-center">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                {content.inputs.map((input, key) => {
+                  return (
+                    <div key={key} style={{ marginTop: "10px" }}>
+                      <p>
+                        <label className={Styles.label}>{input.label} </label>
+                      </p>
+                      <p>
+                        <input
+                          type={input.type}
+                          name={input.name}
+                          className={Styles.input}
+                          {...register(input.name)}
+                          autoComplete="disabled"
+                        />
+                      </p>
+                      <p className="text-rose-600 mt-1 text-base">
+                        {errors[input.name]?.message}
+                      </p>
+                    </div>
+                  );
+                })}
+                <div style={{ marginTop: "10px" }}>
+                  <label className={Styles.label}>Gender</label>
+                  <Controller
+                    name="gender"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        {...field}
+                        isClearable
+                        isSearchable={false}
+                        className="react-dropdown"
+                        classNamePrefix="dropdown"
+                        options={options}
+                      />
+                    )}
+                  />
+                  <p className="text-rose-600 mt-1">
+                    {errors.gender?.message || errors.gender?.label.message}
+                  </p>
+                </div>
+                <button
+                  className="regular-btn mt-5 "
+                  type="submit"
+                  disabled={btnDisable}
+                >
+                  {orderText}
+                </button>
+              </form>
+              <p className="text-green-600 text-base  text-xl mt-3">
+                {success}
+              </p>
             </div>
           </div>
-          <div className="self-center">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              {content.inputs.map((input, key) => {
-                return (
-                  <div key={key} style={{ marginTop: "10px" }}>
-                    <p>
-                      <label className={Styles.label}>{input.label} </label>
-                    </p>
-                    <p>
-                      <input
-                        type={input.type}
-                        name={input.name}
-                        className={Styles.input}
-                        {...register(input.name)}
-                        autoComplete="disabled"
-                      />
-                    </p>
-                    <p className="text-rose-600 mt-1 text-base">
-                      {errors[input.name]?.message}
-                    </p>
-                  </div>
-                );
-              })}
-              <div style={{ marginTop: "10px" }}>
-                <label className={Styles.label}>Gender</label>
-                <Controller
-                  name="gender"
-                  control={control}
-                  render={({ field }) => (
-                    <Select
-                      {...field}
-                      isClearable
-                      isSearchable={false}
-                      className="react-dropdown"
-                      classNamePrefix="dropdown"
-                      options={options}
-                    />
-                  )}
-                />
-                <p className="text-rose-600 mt-1">
-                  {errors.gender?.message || errors.gender?.label.message}
-                </p>
-              </div>
-              <button
-                className="regular-btn mt-5 "
-                type="submit"
-                disabled={btnDisable}
-              >
-                {orderText}
-              </button>
-            </form>
-            <p className="text-green-600 text-base  text-xl mt-3">{success}</p>
-          </div>
-        </div>
+        </>
       )}
     </>
   );

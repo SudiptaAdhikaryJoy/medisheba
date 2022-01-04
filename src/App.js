@@ -4,6 +4,7 @@ import "./App.css";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import Login from "./components/Pages/Account/Login/Login";
 import Register from "./components/Pages/Account/Register/Register";
+import ConfirmOrder from "./components/Pages/ConfirmOrder/ConfirmOrder";
 import Home from "./components/Pages/Homepage/Home/Home";
 import OrderItem from "./components/Pages/OrderItem/OrderItem";
 import RequestService from "./components/Pages/RequestService/RequestService";
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path="/order/:id">
               <OrderItem url="https://medi-sheba-backend.herokuapp.com/getOneMedicine"></OrderItem>
+            </Route>
+            <Route path="/confirmOrder/:confirmId">
+              <ConfirmOrder></ConfirmOrder>
             </Route>
             <Route path="/login">
               <Login></Login>
