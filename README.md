@@ -20,6 +20,7 @@ MediSheba is an online based medical shop where users can order medicine and ser
 ## Tech Stack
 
 - ReactJS
+- Send message directly on messenger
 - TailwindCSS
 - Firebase Authentication
 - Netlify Hosting
