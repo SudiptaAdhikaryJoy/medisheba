@@ -6,6 +6,7 @@ import Login from "./components/Pages/Account/Login/Login";
 import Register from "./components/Pages/Account/Register/Register";
 import ConfirmOrder from "./components/Pages/ConfirmOrder/ConfirmOrder";
 import Dashboard from "./components/Pages/Dashboard/DashboardHome/Dashboard";
+import ContactForm from "./components/Pages/Homepage/ContactForm/ContactForm";
 import Home from "./components/Pages/Homepage/Home/Home";
 import OrderItem from "./components/Pages/OrderItem/OrderItem";
 import RequestService from "./components/Pages/RequestService/RequestService";
@@ -46,9 +47,12 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
+            <Route path="/contact">
+              <ContactForm></ContactForm>
+            </Route>
           </Switch>
           <Footer></Footer>
-        </Router>
+          </Router>
       </AuthProvider>
     </div>
   );
